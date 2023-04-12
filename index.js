@@ -8,6 +8,11 @@ const data = [
 
 function start() {
   console.log("Chartapp kører");
+  setInterval(update, 1000);
+}
+
+function update() {
+  updateData();
   displayAllBars();
 }
 
@@ -19,4 +24,9 @@ function displayAllBars() {
     let h = (data[i] / 32) * 100;
     everyBar.style.height = `${h}px`;
   }
+}
+
+function updateData() {
+  data.push(Math.floor(Math.random() * 32) + 1);
+  data.shift();
 }
